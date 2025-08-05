@@ -44,3 +44,16 @@ dt_dy <- D(expr = ty, name = "y")
 # find slope of T(y) at range of values
 y <- seq(from = -0.4, to = 2.0, by = 0.1)
 eval(dt_dy)
+
+#........................Plotting Example........................
+# loaded ggplot2 and palmerpenguins
+ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm)) + 
+  geom_point(aes(color = species)) + 
+  scale_color_manual(values = c("darkorange", "purple", "cyan3")) + 
+  labs(x = "Body Mass (g)",
+       y = "Flipper Length (mm)",
+       title = "Palmer Penguins Size Measurements",
+       subtitle = "Palmer Archipelago, Antarctica (2007 - 2009)",
+       caption = "Collected by Dr. Kristen Gorman") + 
+  facet_wrap(~island) +
+  theme_minimal()
